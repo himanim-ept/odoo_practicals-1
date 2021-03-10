@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id ="view_country_ept_tree" model="ir.ui.view">
+            <field name="name">country.tree</field>
+            <field name="model">res.country.ept</field>
+            <field name="arch" type="xml">
+                <tree string="Country">
+                    <field name="name"/>
+                    <field name="short_country"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="country_ept_form" model="ir.ui.view">
+            <field name="name">country.form</field>
+            <field name="model">res.country.ept</field>
+            <field name="arch" type="xml">
+                <form string="Country">
+                    <field name="name"/>
+                    <field name="short_country"/>
+                    <field name="active"/>
+                </form>
+            </field>
+        </record>
+        <record id="country_ept_search" model="ir.ui.view">
+            <field name="name">country.search</field>
+            <field name="model">res.country.ept</field>
+            <field name="arch" type="xml">
+                <search string="Country">
+                    <field name="name"/>
+                    <field name="short_country"/>
+                    <filter string="Active" domain="[('active', '=' ,True)]" name="filter_active"/>
+                    <filter string="InActive" domain="[('active', '=' ,False)]" name="filter_inactive"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_res_country" model="ir.actions.act_window">
+            <field name="name">Res Country</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.country.ept</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="context">{}</field>
+        </record>
+        <menuitem id="country_root"
+                  name="Localization"/>
+        <menuitem id="country_menu"
+                  name="Countries"
+                  parent="country_root"
+                  action="action_res_country"/>
+    </data>
+</odoo>

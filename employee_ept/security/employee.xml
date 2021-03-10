@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="category_employee_ept" model="ir.module.category">
+        <field name="name">Employee Access rights</field>
+        <field name="description">Contains rights for Employee</field>
+    </record>
+    <record id="group_employee_ept_user" model="res.groups">
+        <field name="name">Employee Users</field>
+        <field name="category_id" ref="category_employee_ept"/>
+    </record>
+    <record id="group_employee_ept_manager" model="res.groups">
+        <field name="name">Employee Manager</field>
+        <field name="category_id" ref="category_employee_ept"/>
+        <field name="implied_ids" eval="[(4, ref('group_employee_ept_user'))]"/>
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="state_demo_data1" model="res.state.ept">
+        <field name="state_name">Bihar</field>
+        <field name="state_code">BR</field>
+        <field name="country_name">India</field>
+        <field name="active">False</field>
+    </record>
+    <record id="state_demo_data2" model="res.state.ept">
+        <field name="state_name">Gujarat</field>
+        <field name="state_code">GUJ</field>
+        <field name="country_name">India</field>
+        <field name="active">True</field>
+    </record>
+    <record id="state_demo_data3" model="res.state.ept">
+        <field name="state_name">Assam</field>
+        <field name="state_code">AS</field>
+        <field name="country_name">India</field>
+        <field name="active">True</field>
+    </record>
+    <record id="state_demo_data4" model="res.state.ept">
+        <field name="state_name">Andhra Pradesh</field>
+        <field name="state_code">AP</field>
+        <field name="country_name">India</field>
+        <field name="active">False</field>
+    </record>
+    <record id="state_demo_data5" model="res.state.ept">
+        <field name="state_name">Arunachal Pradesh</field>
+        <field name="state_code">AS</field>
+        <field name="country_name">India</field>
+        <field name="active">True</field>
+    </record>
+
+
+
+</odoo>

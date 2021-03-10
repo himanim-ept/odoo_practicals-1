@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_city_ept_tree" model="ir.ui.view">
+            <field name="name">city.tree</field>
+            <field name="model">res.city.ept</field>
+            <field name="arch" type="xml">
+                <tree string="City" editable="bottom">
+                    <field name="city_name"/>
+                    <field name="state_name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_city_ept_search" model="ir.ui.view">
+            <field name="name">city.search</field>
+            <field name="model">res.city.ept</field>
+            <field name="arch" type="xml">
+                <search string="City">
+                    <field name="city_name"/>
+                    <field name="state_name"/>
+                    <filter string="Active" domain="[('active', '=' ,True)]" name="filter_active"/>
+                    <filter string="InActive" domain="[('active', '=' ,False)]" name="filter_inactive"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_res_city" model="ir.actions.act_window">
+            <field name="name">Res City</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.city.ept</field>
+            <field name="view_mode">tree,search</field>
+            <field name="context">{}</field>
+        </record>
+        <menuitem id="city_root"
+                  name="Localization_city"/>
+        <menuitem id="city_menu"
+                  name="City"
+                  parent="city_root"
+                  action="action_res_city"/>
+    </data>
+</odoo>

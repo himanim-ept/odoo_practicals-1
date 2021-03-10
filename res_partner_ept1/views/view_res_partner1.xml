@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_partner1_ept_tree" model="ir.ui.view">
+            <field name="name">res.partner1.tree</field>
+            <field name="model">res.partner1.ept</field>
+            <field name="arch" type="xml">
+                <tree string="Res Partner">
+                    <field name="name"/>
+                    <field name="street1"/>
+                    <field name="street2"/>
+                    <field name="city"/>
+                    <field name="state"/>
+                    <field name="zip_code"/>
+                    <field name="country"/>
+                    <field name="birthdate"/>
+                    <field name="age"/>
+                    <field name="weight"/>
+                    <field name="description"/>
+                    <field name="gender"/>
+                    <field name="details"/>
+                    <field name="is_sepctacles"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_res_partner1_form" model="ir.ui.view">
+            <field name="name">res_partner1_form</field>
+            <field name="model">res.partner1.ept</field>
+            <field name="arch" type="xml">
+                <form string="Res Partner">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="street1"/>
+                            <field name="street2"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="zip_code"/>
+                            <field name="country"/>
+                        </group>
+                        <group>
+                            <field name="birthdate"/>
+                            <field name="age"/>
+                            <field name="weight"/>
+                            <field name="description"/>
+                            <field name="gender"/>
+                            <field name="details"/>
+                            <field name="is_sepctacles"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_res_partner1" model="ir.actions.act_window">
+            <field name="name">Res Partner1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner1.ept</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+        <menuitem id="partner_menu1_root"
+                   name="Contact1"/>
+        <menuitem id="partner_details1_menu"
+                   name="Customer"
+                   parent="partner_menu1_root"
+                   action="action_res_partner1"/>
+    </data>
+</odoo>

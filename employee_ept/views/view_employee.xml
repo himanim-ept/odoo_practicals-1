@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_employee_ept_tree" model="ir.ui.view">
+            <field name="name">employee.tree</field>
+            <field name="model">employee.ept</field>
+            <field name="arch" type="xml">
+                <tree string="Employee">
+                    <field name="name"/>
+                    <field name="department"/>
+                    <field name="job_position"/>
+                    <field name="salary"/>
+                    <field name="hire_date"/>
+                    <field name="gender"/>
+                    <field name="job_type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_employee_ept_form" model="ir.ui.view">
+            <field name="name">employee.form</field>
+            <field name="model">employee.ept</field>
+            <field name="arch" type="xml">
+                <form string="Employee">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="department"/>
+                            <field name="job_position"/>
+                            <field name="salary"/>
+                            <field name="hire_date"/>
+                            <field name="gender"/>
+                            <field name="job_type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_employee_ept_search" model="ir.ui.view">
+            <field name="name">employee.search</field>
+            <field name="model">employee.ept</field>
+            <field name="arch" type="xml">
+                <search string="Employee">
+                    <field name="name"/>
+                    <field name="job_position"/>
+                    <field name="department"/>
+                    <filter string="Permanent" domain="[('job_type', '=' ,'Permanent')]" name="filter_job_type"/>
+                    <filter string="Ad Hoc" domain="[('job_type', '=' ,'Ad Hoc')]" name="filter_job_type"/>
+                    <filter string="Male" domain="[('gender', '=' ,'Male')]" name="filter_gender"/>
+                    <filter string="Female" domain="[('gender', '=' ,'Female')]" name="filter_gender"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Job_Position" name="job_position" domain="[]"
+                                context="{'group_by': 'job_position'}"/>
+                        <filter string="Department_Name" name="department" domain="[]"
+                                context="{'group_by': 'department'}"/>
+                        <filter string="Job_Type" name="job_type" domain="[]"
+                                context="{'group_by': 'job_type'}"/>
+                        <filter string="Gender" name="gender" domain="[]"
+                                context="{'group_by': 'gender'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_employee" model="ir.actions.act_window">
+            <field name="name">Employee</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.ept</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="view_id" ref="view_employee_ept_tree"/>
+            <field name="context">{}</field>
+        </record>
+        <menuitem id="employee_root"
+                  name="Employee"/>
+
+        <menuitem id="data_menu"
+                  name="credential"
+                  parent="employee_root"
+                  action="action_employee"/>
+
+    </data>
+</odoo>

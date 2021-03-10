@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_partner2_ept_tree" model="ir.ui.view">
+            <field name="name">res.partner2.tree</field>
+            <field name="model">res.partner2.ept</field>
+            <field name="arch" type="xml">
+                <tree string="Partner">
+                    <field name="name"/>
+                    <field name="street1"/>
+                    <field name="street2"/>
+                    <field name="city"/>
+                    <field name="city"/>
+                    <field name="state"/>
+                    <field name="zip_code"/>
+                    <field name="country"/>
+                    <field name="birthdate"/>
+                    <field name="age"/>
+                    <field name="weight"/>
+                    <field name="description"/>
+                    <field name="gender"/>
+                    <field name="details"/>
+                    <field name="is_sepctacles"/>
+                    <field name="image" widget="image"/>
+                    <field name="age_calculate_read_only" readonly="True"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_partner2_ept_form" model="ir.ui.view">
+            <field name="name">res.partner2.form</field>
+            <field name="model">res.partner2.ept</field>
+            <field name="arch" type="xml">
+                <form string="Partner">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="street1"/>
+                            <field name="street2"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="zip_code"/>
+                            <field name="country"/>
+                            <field name="age_calculate_read_only"  readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="birthdate"/>
+                            <field name="age"/>
+                            <field name="weight"/>
+                            <field name="description"/>
+                            <field name="gender"/>
+                            <field name="details"/>
+                            <field name="is_sepctacles"/>
+                            <div width="100">
+                                <field name="image" widget="image" width="100" height="100"/>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_partner2_ept_search" model="ir.ui.view">
+            <field name="name">res.partner2.search</field>
+            <field name="model">res.partner2.ept</field>
+            <field name="arch" type="xml">
+                <search string="ResPartner">
+                    <field name="city"/>
+                    <field name="name"/>
+                    <field name="country"/>
+                    <field name="zip_code"/>
+                    <field name="state"/>
+                    <filter string="Male" domain="[('gender', '=', 'Male')]" name="filter_by_gender_male"/>
+                    <filter string="Female" domain="[('gender', '=', 'Female')]" name="filter_by_gender_female"/>
+                    <filter string="Transgender" domain="[('gender', '=', 'Transgender')]"
+                            name="filter_by_gender_Transgender"/>
+                    <filter string="Having Sepctacles" domain="[('is_sepctacles', '=', True)]" name="filter_by_spectacles_true"/>
+                    <filter string="Not Having Sepctacles" domain="[('is_sepctacles', '=', False)]" name="filter_by_spectacles_false"/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Country" name="country" domain="[]" context="{'group_by': 'country'}"/>
+                        <filter string="City" name="city" domain="[]" context="{'group_by': 'city'}"/>
+                        <filter string="State" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                        <filter string="Gender" name="gender" domain="[]" context="{'group_by': 'gender'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_res_partner2" model="ir.actions.act_window">
+            <field name="name">Res Partner2</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner2.ept</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+        <menuitem id="partner_menu2_root"
+                  name="Contact2"/>
+        <menuitem id="partner_details2_menu"
+                  name="Customer"
+                  parent="partner_menu2_root"
+                  action="action_res_partner2"/>
+    </data>
+</odoo>
